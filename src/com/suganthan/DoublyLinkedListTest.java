@@ -30,9 +30,9 @@ public class DoublyLinkedListTest {
                 case 2:
                     doublyLinkedListTest.insert();
                     break;
-                /*case 3:
+                case 3:
                     doublyLinkedListTest.remove();
-                    break;*/
+                    break;
             }
         } while(userInput != -1);
     }
@@ -90,6 +90,27 @@ public class DoublyLinkedListTest {
 
                 temp = temp.next;
             }
+        }
+        forwardTranversal();
+        backwardTranversal();
+    }
+
+    public void remove() {
+        System.out.println("Enter the element to remove");
+        int valueToRemoval = in.nextInt();
+        DoublyNode temp = head;
+        while(temp!= null) {
+            if(temp.getData() == valueToRemoval && temp.next == null && temp.previous ==null) { //first element
+                head = null;
+                last = null;
+                break;
+            } else if(temp.getData() == valueToRemoval && temp.next == null && temp.previous !=null) { //last element
+                last = temp.previous;
+                temp.previous.next = null;
+                break;
+            }
+
+            temp = temp.next;
         }
         forwardTranversal();
         backwardTranversal();
