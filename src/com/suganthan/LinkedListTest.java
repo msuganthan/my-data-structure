@@ -15,30 +15,26 @@ public class LinkedListTest {
         int userInput = 0;
         do {
             System.out.println("\nEnter the option");
-            System.out.println("1. Insert");
-            System.out.println("2. Add at the end");
-            System.out.println("3. Delete from the end");
-            System.out.println("4. Remove particular element");
+            System.out.println("1. Add");
+            System.out.println("2. Insert in a position");
+            System.out.println("3. Remove");
 
             userInput = linkedListTest.in.nextInt();
             switch (userInput) {
                 case 1:
+                    linkedListTest.add();
+                    break;
+                case 2:
                     linkedListTest.insert();
                     break;
-                /*case 2:
-                    listUsingArrays.add();
-                    break;
                 case 3:
-                    listUsingArrays.delete();
+                    linkedListTest.remove();
                     break;
-                case 4:
-                    listUsingArrays.remove();
-                    break;*/
             }
         } while(userInput != -1);
     }
 
-    public void insert() {
+    public void add() {
         System.out.println("Enter the value to insert");
         int valueToInsert = in.nextInt();
         Node newNode = new Node(valueToInsert, null);
@@ -50,6 +46,53 @@ public class LinkedListTest {
                 lastNode = lastNode.next;
             }
             lastNode.next = newNode;
+        }
+        display();
+    }
+
+    public void insert() {
+        System.out.println("Enter the value to insert");
+        int valueToInsert = in.nextInt();
+        System.out.println("Enter the position to insert");
+        int position = in.nextInt();
+        if(head == null) {
+            Node newNode = new Node(valueToInsert, null);
+            head = newNode;
+        } else {
+            Node lastNode = head;
+            int count = 0;
+            while(lastNode != null ) {
+                count++;
+                if (lastNode.next == null && count == position) { //last node
+                    Node newNode = new Node(valueToInsert, null);
+                    lastNode.next = newNode;
+                } else if(lastNode.next != null && count == position) {
+                    Node newNode = new Node(valueToInsert, lastNode.next);
+                    lastNode.next = newNode;
+                }
+                lastNode = lastNode.next;
+            }
+        }
+        display();
+    }
+
+    public void remove() {
+        System.out.println("Enter the element to remove");
+        int valueToRemove = in.nextInt();
+        if(head.data ==valueToRemove) {
+            head = head.next;
+        } else {
+            Node temp = head;
+            while(temp != null) {
+                if(temp.getNext().getData() == valueToRemove && temp.getNext().getNext()==null) {
+                    temp.next = null;
+                    break;
+                } else if (temp.getNext().getData() == valueToRemove) {
+                    temp.next = temp.next.next;
+                    break;
+                }
+                temp = temp.next;
+            }
         }
         display();
     }
