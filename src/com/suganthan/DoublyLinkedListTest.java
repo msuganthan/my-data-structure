@@ -27,10 +27,10 @@ public class DoublyLinkedListTest {
                 case 1:
                     doublyLinkedListTest.add();
                     break;
-                /*case 2:
+                case 2:
                     doublyLinkedListTest.insert();
                     break;
-                case 3:
+                /*case 3:
                     doublyLinkedListTest.remove();
                     break;*/
             }
@@ -54,6 +54,40 @@ public class DoublyLinkedListTest {
                     last.previous = temp;
                     break;
                 }
+                temp = temp.next;
+            }
+        }
+        forwardTranversal();
+        backwardTranversal();
+    }
+
+    public void insert() {
+        System.out.println("Enter the value to insert: ");
+        int valueToInsert = in.nextInt();
+        System.out.println("Enter  the position: ");
+        int positionToInsert = in.nextInt();
+        if(head == null && last == null) {
+            DoublyNode newNode = new DoublyNode(null, valueToInsert, null);
+            head = newNode;
+            last = newNode;
+        } else {
+            DoublyNode temp = head;
+            int count = 0;
+            while(temp != null) {
+                count++;
+                if(temp.next == null) {
+                    DoublyNode newNode = new DoublyNode(null, valueToInsert, null);
+                    temp.next = newNode;
+                    last = newNode;
+                    last.previous = temp;
+                    break;
+                } else if(count == positionToInsert) {
+                    DoublyNode newNode = new DoublyNode(temp, valueToInsert, temp.next);
+                    temp.next.previous = newNode;
+                    temp.next = newNode;
+                    break;
+                }
+
                 temp = temp.next;
             }
         }
