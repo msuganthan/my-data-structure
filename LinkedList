@@ -1,0 +1,8 @@
+1. Have a reference for both head and last node
+2. When creating the first node, both head and last node will point to the same node
+3. When creating the further nodes, we will identify the last node and then insert the new node
+4. The last nodes address will always be null
+5. So how we can structure that -- lets code :)
+6. Operations we can introduct
+    Insert
+    Iterate
