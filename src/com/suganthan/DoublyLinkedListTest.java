@@ -108,6 +108,9 @@ public class DoublyLinkedListTest {
                 last = temp.previous;
                 temp.previous.next = null;
                 break;
+            } else if (temp.getData() == valueToRemoval) {
+                temp.next.previous = temp.previous;
+                temp.previous.next = temp.next;
             }
 
             temp = temp.next;
