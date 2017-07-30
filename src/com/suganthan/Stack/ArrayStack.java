@@ -23,16 +23,12 @@ public class ArrayStack {
         //stack.pop(); throws StackUnderflowException
 
         System.out.println("Stack is empty "+stack.isEmpty());
-
-
-
     }
 
     void push(int data) throws StackOverflowException {
         if (top >= MAX_SIZE) {
             throw new StackOverflowException("Stack is full");
         }
-
         STACK[++top] = data;
     }
 
@@ -54,16 +50,4 @@ public class ArrayStack {
         return top < 0 ? true : false;
     }
 
-}
-
-class StackOverflowException extends Exception {
-    StackOverflowException(String message) {
-        super(message);
-    }
-}
-
-class StackUnderflowException extends Exception {
-    StackUnderflowException(String message) {
-        super(message);
-    }
 }
