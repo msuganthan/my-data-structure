@@ -3,14 +3,14 @@ package com.suganthan.Stack;
 /**
  * Created by msuganthan on 30/7/17.
  */
-public class Stack {
+public class ArrayStack {
 
     final int MAX_SIZE = 3;
     int top = -1;
     int[] STACK = new int[MAX_SIZE];
 
     public static void main(String[] args) throws StackOverflowException, StackUnderflowException{
-        Stack stack = new Stack();
+        ArrayStack stack = new ArrayStack();
         stack.push(1);
         stack.push(2);
         stack.push(3);
