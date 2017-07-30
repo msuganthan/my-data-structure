@@ -33,21 +33,21 @@ public class ArrayStack {
     }
 
     void pop() throws StackUnderflowException{
-        if (top < 0) {
+        if (isEmpty()) {
             throw new StackUnderflowException("Stack is empty");
         }
         --top;
     }
 
     int top() throws StackUnderflowException{
-        if (top < 0) {
+        if (isEmpty()) {
             throw new StackUnderflowException("Stack is empty");
         }
         return STACK[top];
     }
 
     boolean isEmpty() {
-        return top < 0 ? true : false;
+        return (top < 0);
     }
 
 }
